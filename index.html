@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psst... Betu! 💕</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+    .heart-beat {
+      animation: heartBeat 1.5s infinite;
+    }
+    .bg-gradient-cute {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fbc2eb 100%);
+    }
+    .bg-gradient-cute-alt {
+      background: linear-gradient(135deg, #a6c1ee 0%, #fbc2eb 100%);
+    }
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fly-in {
+      animation: flyIn 1s ease-out;
+    }
+    @keyframes flyIn {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #f00;
+      opacity: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-cute font-sans flex flex-col items-center justify-center p-4 transition-all duration-500 relative overflow-hidden">
+  <!-- Floating hearts -->
+  <div class="absolute top-10 left-5 text-2xl text-pink-400 float">💖</div>
+  <div class="absolute top-1/4 right-8 text-3xl text-red-400 float" style="animation-delay: 0.5s;">💘</div>
+  <div class="absolute bottom-1/3 left-10 text-xl text-purple-400 float" style="animation-delay: 1s;">💝</div>
+  
+  <div class="max-w-md w-full space-y-6">
+    <!-- Section 1: Teasing Message -->
+    <div id="section1" class="bg-white bg-opacity-90 rounded-3xl p-8 shadow-xl text-center backdrop-blur-sm">
+      <h1 class="text-3xl font-bold text-pink-600 mb-4">Psst... Betu! Did you forget something? 👀💕</h1>
+      <button id="tellMeBtn" class="mt-6 px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all pulse text-xl">
+        Tell me, baby! 💌
+      </button>
+    </div>
+
+    <!-- Section 2: Reveal -->
+    <div id="section2" class="hidden bg-white bg-opacity-90 rounded-3xl p-8 shadow-xl text-center backdrop-blur-sm fly-in">
+      <h2 class="text-2xl font-bold text-purple-600 mb-4">It's Boyfriend's Day, love! 🎉💖</h2>
+      <p class="text-gray-700 mb-6">And someone forgot... but that's okay because I made you this!</p>
+      <button id="whatNowBtn" class="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-400 text-white rounded-full shadow-lg hover:shadow-xl transition-all text-xl">
+        Show me more! 🎁
+      </button>
+    </div>
+
+    <!-- Section 3: Surprises -->
+    <div id="section3" class="hidden space-y-6">
+      <!-- Reasons I Love You -->
+      <div class="bg-white bg-opacity-90 rounded-3xl p-6 shadow-xl backdrop-blur-sm fade-in">
+        <h3 class="text-xl font-bold text-blue-600 mb-3">5 Reasons I Love You 💖</h3>
+        <button id="reasonsBtn" class="px-6 py-3 bg-gradient-to-r from-blue-400 to-teal-400 text-white rounded-full shadow-md hover:shadow-lg transition-all w-full mb-3">
+          Click to Reveal! ✨
+        </button>
+        <div id="reasonsList" class="hidden text-left space-y-3 mt-4">
+          <div class="flex items-start">
+            <span class="text-pink-500 mr-2">1.</span>
+            <span>Your smile makes my heart do backflips 🤸‍♀️💘</span>
+          </div>
+          <div class="flex items-start">
+            <span class="text-pink-500 mr-2">2.</span>
+            <span>You're the only one who gets my weird humor 😜</span>
+          </div>
+          <div class="flex items-start">
+            <span class="text-pink-500 mr-2">3.</span>
+            <span>You give the best hugs (even when we're apart) 🧸</span>
+          </div>
+          <div class="flex items-start">
+            <span class="text-pink-500 mr-2">4.</span>
+            <span>You're secretly a rap god (fucking rap(ist) 😏🎤)</span>
+          </div>
+          <div class="flex items-start">
+            <span class="text-pink-500 mr-2">5.</span>
+            <span>You make every day feel like Boyfriend's Day 💝</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Virtual Flowers -->
+      <div class="bg-white bg-opacity-90 rounded-3xl p-6 shadow-xl backdrop-blur-sm fade-in" style="animation-delay: 0.2s;">
+        <h3 class="text-xl font-bold text-pink-600 mb-3">Virtual Flowers for You 🌸</h3>
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <div class="text-4xl text-center">🌹</div>
+          <div class="text-4xl text-center">🌻</div>
+          <div class="text-4xl text-center">🌸</div>
+          <div class="text-4xl text-center">💐</div>
+          <div class="text-4xl text-center">🌷</div>
+          <div class="text-4xl text-center">🏵️</div>
+        </div>
+        <button id="flowerBtn" class="px-6 py-3 bg-gradient-to-r from-pink-400 to-red-400 text-white rounded-full shadow-md hover:shadow-lg transition-all w-full">
+          Make Them Bloom! 🌸
+        </button>
+      </div>
+
+      <!-- Special Message -->
+      <div class="bg-white bg-opacity-90 rounded-3xl p-6 shadow-xl backdrop-blur-sm fade-in" style="animation-delay: 0.4s;">
+        <h3 class="text-xl font-bold text-purple-600 mb-3">Just for You, Baby 💌</h3>
+        <button id="messageBtn" class="px-6 py-3 bg-gradient-to-r from-purple-400 to-indigo-400 text-white rounded-full shadow-md hover:shadow-lg transition-all w-full mb-3">
+          Open My Secret Message 🎀
+        </button>
+        <div id="secretMessage" class="hidden text-center mt-4">
+          <p class="text-gray-700 mb-3">Even though you forgot today was your day...</p>
+          <p class="text-pink-600 font-semibold text-lg">You're still the best boyfriend ever! 🥇</p>
+          <p class="text-gray-700 mt-3">Now go treat yourself - you deserve it! And maybe remind me when it's Girlfriend's Day? 😘</p>
+          <div class="text-4xl mt-4 heart-beat">💖</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Section transitions
+    document.getElementById('tellMeBtn').addEventListener('click', () => {
+      document.getElementById('section1').classList.add('hidden');
+      document.getElementById('section2').classList.remove('hidden');
+      createHearts();
+    });
+
+    document.getElementById('whatNowBtn').addEventListener('click', () => {
+      document.getElementById('section2').classList.add('hidden');
+      document.getElementById('section3').classList.remove('hidden');
+      createConfetti();
+    });
+
+    // Reasons reveal
+    document.getElementById('reasonsBtn').addEventListener('click', function() {
+      const list = document.getElementById('reasonsList');
+      list.classList.toggle('hidden');
+      this.textContent = list.classList.contains('hidden') ? 'Click to Reveal! ✨' : 'Aww, love you! 😘';
+      if (!list.classList.contains('hidden')) {
+        animateListItems();
+      }
+    });
+
+    // Flower animation
+    document.getElementById('flowerBtn').addEventListener('click', function() {
+      const flowers = document.querySelectorAll('.grid div');
+      flowers.forEach((flower, index) => {
+        setTimeout(() => {
+          flower.classList.add('text-6xl', 'transition-all', 'duration-300');
+          setTimeout(() => {
+            flower.classList.remove('text-6xl');
+          }, 300);
+        }, index * 200);
+      });
+      this.textContent = 'Bloom Again! 🌺';
+    });
+
+    // Secret message
+    document.getElementById('messageBtn').addEventListener('click', function() {
+      const message = document.getElementById('secretMessage');
+      message.classList.toggle('hidden');
+      this.textContent = message.classList.contains('hidden') ? 
+        'Open My Secret Message 🎀' : 'Read It Again? 💞';
+      if (!message.classList.contains('hidden')) {
+        message.classList.add('heart-beat');
+      }
+    });
+
+    // Animation functions
+    function createHearts() {
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.innerHTML = '💖';
+          heart.className = 'text-2xl absolute animate-float';
+          heart.style.left = Math.random() * 100 + 'vw';
+          heart.style.top = '-50px';
+          heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+          document.body.appendChild(heart);
+          
+          setTimeout(() => {
+            heart.remove();
+          }, 5000);
+        }, i * 300);
+      }
+    }
+
+    function createConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.opacity = '1';
+        document.body.appendChild(confetti);
+        
+        const animation = confetti.animate([
+          { top: '-10px', transform: 'rotate(0deg)', opacity: 1 },
+          { top: '100vh', transform: 'rotate(360deg)', opacity: 0 }
+        ], {
+          duration: Math.random() * 3000 + 2000,
+          easing: 'cubic-bezier(0.1, 0.2, 0.8, 1)'
+        });
+        
+        animation.onfinish = () => confetti.remove();
+      }
+    }
+
+    function animateListItems() {
+      const items = document.querySelectorAll('#reasonsList div');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-bounce');
+          setTimeout(() => {
+            item.classList.remove('animate-bounce');
+          }, 1000);
+        }, index * 300);
+      });
+    }
+  </script>
+</body>
+</html>
